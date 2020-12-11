@@ -9,6 +9,7 @@ import Home from "./pages/Home.js";
 
 import PostDetails from "./pages/PostDetails.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
 	return (

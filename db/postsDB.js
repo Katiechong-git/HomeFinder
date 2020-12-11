@@ -20,7 +20,7 @@ function PostsDB() {
         posts
           .find(query)
           // .sort({ _id: -1 })
-          .limit(4)
+          // .limit(4)
           .toArray()
           .finally(() => client.close())
       );
