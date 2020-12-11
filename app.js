@@ -6,6 +6,8 @@ var logger = require("morgan");
 
 var postsRoutes = require("./routes/posts-routes");
 var usersRoutes = require("./routes/users-routes");
+var passportRoutes = require("./routes/auth-routes.js");
+var configurePassport = require("./auth/authConfig.js");
 
 var app = express();
 
@@ -19,8 +21,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "frontend/build")));
 
+configurePassport(app);
+
 app.use("/api/posts", postsRoutes);
 app.use("/api/users", usersRoutes);
+app.use("/api/auth", passportRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

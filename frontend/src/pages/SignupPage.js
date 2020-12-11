@@ -44,7 +44,7 @@ function SignupPage() {
 					variant="primary"
 					type="submit"
 					onClick={async (evt) => {
-						evt.preventDefault();
+						// evt.preventDefault();
 
 						const response = await fetch("/api/users/create", {
 							method: "POST",

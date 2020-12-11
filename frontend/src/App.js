@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	BrowserRouter as Router,
 	Route,
@@ -14,6 +14,16 @@ import SigninPage from "./pages/SigninPage.js";
 import SignupPage from "./pages/SignupPage.js";
 
 function App() {
+	const [user, setUser] = useState(null);
+
+	function getUser() {
+		fetch("/api/auth/getUser")
+			.then((res) => res.json())
+			.then((_user) => {
+				if (_user.username) setUser(_user.username);
+			});
+	}
+
 	return (
 		<Router>
 			<Navigation />

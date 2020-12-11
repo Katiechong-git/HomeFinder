@@ -56,6 +56,20 @@ function UsersDB() {
     return await users.insertOne(user);
   };
 
+  usersDB.findByUsername = async (username) => {
+    const client = new MongoClient(uri, { useUnifiedTopology: true });
+    try {
+      await client.connect();
+
+      const db = client.db("craigslistDB");
+      const users = db.collection("users");
+
+      return users.getUser(username).finally(() => client.close());
+    } catch (err) {
+      console.log("Error connecting to the database", err);
+    }
+  };
+
   return usersDB;
 }
 

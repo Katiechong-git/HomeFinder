@@ -9,7 +9,11 @@ import { useParams } from "react-router-dom";
 
 function PostDetails() {
 	const postId = useParams().postId;
-	const url = window.location.href;
+
+	// const url = window.location.href;
+	const url = "https://sfbay.craigslist.org/";
+
+	console.log(url);
 	const [post, setPost] = useState({});
 	const html = post.postingbody;
 
