@@ -7,7 +7,7 @@ import SortBar from "../components/SortBar.js";
 function Home() {
 	const [posts, setPosts] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-	const postsPerPage = 4;
+	const postsPerPage = 8;
 
 	const [search, setSearch] = useState("");
 	const [searchBy, setSearchBy] = useState("neighborhood");
@@ -96,12 +96,13 @@ function Home() {
 				searchBy={searchBy}
 				search={search}
 			></SearchBar>
+			<br />
 			<SortBar
 				handleSortByChange={handleSortByChange}
 				sortBy={sortBy}
 			></SortBar>
 			<br />
-			<h1>Find your next home! </h1>
+
 			<Posts posts={currentPosts}></Posts>
 			<Pagination
 				postsPerPage={postsPerPage}

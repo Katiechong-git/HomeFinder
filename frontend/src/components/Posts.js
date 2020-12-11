@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import CardDeck from "react-bootstrap/CardDeck";
+import CardColumns from "react-bootstrap/CardColumns";
 
 import { Link } from "react-router-dom";
 
@@ -28,7 +28,7 @@ function Posts(props) {
     ));
   };
 
-  return <CardDeck>{renderPosts()}</CardDeck>;
+  return <CardColumns>{renderPosts()}</CardColumns>;
 }
 
 // make sure that an array of posts is pass in as props for Posts function
