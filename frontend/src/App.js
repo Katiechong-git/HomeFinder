@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	BrowserRouter as Router,
 	Route,
@@ -20,13 +20,15 @@ function App() {
 		fetch("/api/auth/getUser")
 			.then((res) => res.json())
 			.then((_user) => {
-				if (_user.username) setUser(_user.username);
+				if (_user.username) setUser(_user);
 			});
 	}
 
+	useEffect(getUser, []);
+
 	return (
 		<Router>
-			<Navigation />
+			<Navigation user={user} />
 			<br />
 			<Switch>
 				<Route path="/" exact>
