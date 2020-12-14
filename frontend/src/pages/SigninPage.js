@@ -7,10 +7,6 @@ function SigninPage(props) {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
-	// The useHistory hook gives you access to the history instance that you may use to navigate.
-	// its like a link object but dont need a visual component on screen
-	let history = useHistory();
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		// This function received the values from the form
@@ -37,13 +33,9 @@ function SigninPage(props) {
 				"file: SigninPage.js ~ line 36 ~ handleSubmit ~ success",
 				success
 			);
-			// if we found the user based on the password/email values, then we set the user id to be in local storage
-			// and make the page go back to home page (but log in)
-			// Local Storage is a Web API native to modern web browsers.
-			// It allows websites/apps to store data (simple and limited) in the browser, making that data available in future browser sessions.
+
 			if (success) {
-				// localStorage.setItem("_id", user._id);
-				history.push("/");
+				window.location.href = "/";
 			} else {
 				alert("Login Failed try again");
 			}
