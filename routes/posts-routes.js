@@ -17,4 +17,24 @@ router.get("/:pid", async (req, res, next) => {
 	res.json(post);
 });
 
+router.post("/post/:postId/comment", async (req, res) => {
+	if (req.isAuthenticated()) {
+		console.log("user", req.user);
+		const { comment } = req.body;
+		const returnedComment = await myDB.postComment(
+			req.params.postId,
+			req.user.username,
+			comment
+		);
+		console.log(
+			"file: posts-routes.js ~ line 24 ~ router.post ~ returnedComment",
+			returnedComment
+		);
+
+		res.json(returnedComment);
+	} else {
+		res.status(401).json("Please log in");
+	}
+});
+
 module.exports = router;

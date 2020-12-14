@@ -1,9 +1,10 @@
 const { MongoClient } = require("mongodb");
-
+require("dotenv").config();
 function UsersDB() {
   const usersDB = {};
 
   const uri = process.env.MONGO_URL || "mongodb://localhost:27017";
+  console.log("file: usersDB.js ~ line 7 ~ UsersDB ~ uri", uri);
 
   usersDB.getUsers = async () => {
     const client = new MongoClient(uri, { useUnifiedTopology: true });
@@ -64,7 +65,7 @@ function UsersDB() {
       const db = client.db("craigslistDB");
       const users = db.collection("users");
 
-      return users.getUser(username).finally(() => client.close());
+      return users.findOne({ username }).finally(() => client.close());
     } catch (err) {
       console.log("Error connecting to the database", err);
     }

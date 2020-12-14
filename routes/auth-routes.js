@@ -9,7 +9,7 @@ router.post(
   }),
   function (req, res) {
     console.log("Logged in", req.body);
-    res.redirect("/");
+    res.json("Successfully logged in");
   }
 );
 
@@ -24,8 +24,9 @@ router.get("/getUser", (req, res) =>
 
 router.get("/logout", function (req, res) {
   req.logout();
+  console.log("user", req.user);
   // res.redirect("/");
-  res.send({});
+  res.send("successfully logged out");
 });
 
 module.exports = router;
