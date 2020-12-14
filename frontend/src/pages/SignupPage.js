@@ -3,24 +3,33 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 function SignupPage() {
-	const [email, setEmail] = useState("");
-
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
+
+	const createUser = async (evt) => {
+		evt.preventDefault();
+		if (password !== confirmPassword) {
+			return;
+		}
+		const response = await fetch("/api/users/create", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				username: username,
+				password: password,
+			}), // body data type must match "Content-Type" header
+		});
+
+		console.log("Please create a account", response);
+	};
 
 	return (
 		<div>
 			<h1>Create an account</h1>
-			<Form>
-				<Form.Group controlId="formBasicEmail">
-					<Form.Label>Email address</Form.Label>
-					<Form.Control
-						type="email"
-						placeholder="Enter email"
-						value={email}
-						onChange={(evt) => setEmail(evt.target.value)}
-					/>
-				</Form.Group>
+			<Form onSubmit={createUser}>
 				<Form.Group controlId="formBasicUsername">
 					<Form.Label>Username</Form.Label>
 					<Form.Control
@@ -39,28 +48,17 @@ function SignupPage() {
 						onChange={(evt) => setPassword(evt.target.value)}
 					/>
 				</Form.Group>
+				<Form.Group controlId="formBasicPassword">
+					<Form.Label>Password</Form.Label>
+					<Form.Control
+						type="password"
+						placeholder="Confirm Password"
+						value={confirmPassword}
+						onChange={(evt) => setConfirmPassword(evt.target.value)}
+					/>
+				</Form.Group>
 
-				<Button
-					variant="primary"
-					type="submit"
-					onClick={async (evt) => {
-						// evt.preventDefault();
-
-						const response = await fetch("/api/users/create", {
-							method: "POST",
-							headers: {
-								"Content-Type": "application/json",
-							},
-							body: JSON.stringify({
-								email: email,
-								username: username,
-								password: password,
-							}), // body data type must match "Content-Type" header
-						});
-
-						console.log("Please create a account", response);
-					}}
-				>
+				<Button variant="primary" type="submit">
 					Create account
 				</Button>
 			</Form>

@@ -6,7 +6,8 @@ import { FacebookShareButton, FacebookIcon } from "react-share";
 import { WhatsappShareButton, WhatsappIcon } from "react-share";
 import { EmailShareButton, EmailIcon } from "react-share";
 import { useParams } from "react-router-dom";
-
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 function PostDetails() {
 	const postId = useParams().postId;
 
@@ -15,6 +16,7 @@ function PostDetails() {
 
 	console.log(url);
 	const [post, setPost] = useState({});
+	const [comment, setComment] = useState("");
 	const html = post.postingbody;
 
 	// get the posts from the backend
@@ -23,10 +25,25 @@ function PostDetails() {
 			const _post = await fetch(`/api/posts/${postId}`).then((res) =>
 				res.json()
 			);
+			console.log("post?", _post);
 			setPost(_post);
 		} catch (err) {
 			console.log("error ", err);
 		}
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		console.log("comment", comment);
+		const response = await fetch(`/api/posts/post/${post._id}/comment`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				comment,
+			}), // body data type must match "Content-Type" header
+		});
 	};
 
 	// load the database and clean up on server side
@@ -75,6 +92,27 @@ function PostDetails() {
 				<EmailShareButton url={url}>
 					<EmailIcon size={36} />
 				</EmailShareButton>
+				<Form onSubmit={handleSubmit}>
+					<Form.Group controlId="formBasicComment">
+						<Form.Label>Comment</Form.Label>
+						<Form.Control
+							as="textarea"
+							rows={3}
+							onChange={(evt) => setComment(evt.target.value)}
+							value={comment}
+						/>
+					</Form.Group>
+					<Button variant="primary" type="submit">
+						Submit
+					</Button>
+				</Form>
+				{post.comments &&
+					post.comments.map((comment) => (
+						<Card.Body>
+							<p>{comment.username}</p>
+							<p>{comment.description}</p>
+						</Card.Body>
+					))}
 			</Card.Footer>
 		</Card>
 	);
