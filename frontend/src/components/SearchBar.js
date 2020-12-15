@@ -20,6 +20,7 @@ function SearchBar(props) {
 						// id="inlineFormCustomSelect"
 						value={props.searchBy}
 						onChange={props.handleSearchByChange}
+						aria-label="Choose a value"
 						custom
 					>
 						<option value="neighborhood">Neighborhood</option>

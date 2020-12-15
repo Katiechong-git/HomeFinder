@@ -11,8 +11,8 @@ import Button from "react-bootstrap/Button";
 function PostDetails() {
 	const postId = useParams().postId;
 
-	// const url = window.location.href;
-	const url = "https://sfbay.craigslist.org/";
+	const url = window.location.href;
+	// const url = "https://sfbay.craigslist.org/";
 
 	console.log(url);
 	const [post, setPost] = useState({});
@@ -33,7 +33,7 @@ function PostDetails() {
 	};
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
+		// e.preventDefault();
 		console.log("comment", comment);
 		const response = await fetch(`/api/posts/post/${post._id}/comment`, {
 			method: "POST",
@@ -53,10 +53,11 @@ function PostDetails() {
 
 	return (
 		<div role="main">
-			<Card border="info">
-				<h1>
-					<Card.Header>{post.title}</Card.Header>
-				</h1>
+			<Card bg="light">
+				<Card.Header>
+					<Card.Title>{post.title}</Card.Title>
+				</Card.Header>
+
 				<Card.Body>
 					<div>
 						<Carousel>
@@ -102,7 +103,10 @@ function PostDetails() {
 					<br />
 					<Form onSubmit={handleSubmit}>
 						<Form.Group controlId="formBasicComment">
-							<Form.Label>Comment</Form.Label>
+							<Form.Label>
+								✍️ Comment here, you must log in to be able to
+								post
+							</Form.Label>
 							<Form.Control
 								as="textarea"
 								rows={3}
@@ -117,10 +121,8 @@ function PostDetails() {
 					{post.comments &&
 						post.comments.map((comment) => (
 							<Card.Body>
-								<p>
-									User @{comment.username} said "
-									{comment.description}"
-								</p>
+								🙋 User @{comment.username} said "
+								{comment.description}"
 							</Card.Body>
 						))}
 				</Card.Footer>

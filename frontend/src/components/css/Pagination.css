@@ -18,6 +18,9 @@
 	justify-content: space-between;
 }
 */
+.pagination-a {
+	color: black;
+}
 .paginate-container {
 	display: inline-block;
 	padding: 1rem;

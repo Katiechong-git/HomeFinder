@@ -9,7 +9,7 @@ import Home from "./pages/Home.js";
 import PostDetails from "./pages/PostDetails.js";
 import Navigation from "./components/Navigation.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+
 import SigninPage from "./pages/SigninPage.js";
 import SignupPage from "./pages/SignupPage.js";
 
@@ -27,26 +27,28 @@ function App() {
 	useEffect(getUser, []);
 
 	return (
-		<Router>
-			<Navigation user={user} />
-			<br />
-			<Switch>
-				<Route path="/" exact>
-					<Home />
-				</Route>
-				<Route path="/posts/:postId" exact>
-					<PostDetails />
-				</Route>
-				<Route path="/signup">
-					<SignupPage />
-				</Route>
-				<Route path="/signin">
-					<SigninPage />
-				</Route>
-				<Route path="/signout"></Route>
-				<Redirect to="/" />
-			</Switch>
-		</Router>
+		<div class="container">
+			<Router>
+				<Navigation user={user} />
+				<br />
+				<Switch>
+					<Route path="/" exact>
+						<Home />
+					</Route>
+					<Route path="/posts/:postId" exact>
+						<PostDetails />
+					</Route>
+					<Route path="/signup">
+						<SignupPage />
+					</Route>
+					<Route path="/signin">
+						<SigninPage />
+					</Route>
+					<Route path="/signout"></Route>
+					<Redirect to="/" />
+				</Switch>
+			</Router>
+		</div>
 	);
 }
 

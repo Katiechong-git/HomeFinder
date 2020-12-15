@@ -45,7 +45,7 @@ function SigninPage(props) {
 	};
 
 	return (
-		<Card border="info" style={{ width: "36rem" }} role="main">
+		<Card bg="light" style={{ width: "36rem" }} role="main">
 			<Card.Header>
 				<Card.Title>
 					Sign in to add your comments to each post 💬

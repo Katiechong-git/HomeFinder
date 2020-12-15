@@ -29,7 +29,7 @@ function SignupPage() {
 	};
 
 	return (
-		<Card border="info" style={{ width: "36rem" }} role="main">
+		<Card bg="light" style={{ width: "36rem" }} role="main">
 			<Card.Header>
 				<Card.Title>Create an account now 🪴</Card.Title>
 			</Card.Header>

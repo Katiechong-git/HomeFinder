@@ -11,7 +11,7 @@ function Posts(props) {
   // rendering each post in posts array into a list item
   const renderPosts = () => {
     return props.posts.map((p) => (
-      <Card key={p._id} border="info">
+      <Card key={p._id} bg="light">
         <Card.Img variant="top" src={p.images[0]} alt="image of the house" />
         <Card.Body>
           <Card.Title>{p.title}</Card.Title>
@@ -29,7 +29,9 @@ function Posts(props) {
           </label>
           <ListGroup.Item>
             <Link to={`/posts/${p._id}`}>
-              <Button variant="light">Click me to see more details! ❤️</Button>
+              <Button variant="light">
+                Click me to see more details about this house! ❤️
+              </Button>
             </Link>
           </ListGroup.Item>
         </ListGroup>
