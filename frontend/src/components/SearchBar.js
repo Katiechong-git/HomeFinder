@@ -5,7 +5,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 function SearchBar(props) {
 	return (
-		<Form.Group>
+		<Form.Group role="search">
 			<Form.Row className="align-items-center">
 				<Form.Label
 					className="mr-sm-2"
@@ -17,7 +17,7 @@ function SearchBar(props) {
 					<Form.Control
 						as="select"
 						className="mr-sm-2"
-						id="inlineFormCustomSelect"
+						// id="inlineFormCustomSelect"
 						value={props.searchBy}
 						onChange={props.handleSearchByChange}
 						custom

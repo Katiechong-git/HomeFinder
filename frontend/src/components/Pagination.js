@@ -4,15 +4,18 @@ import ReactPaginate from "react-paginate";
 const Pagination = (props) => {
 	return (
 		<ReactPaginate
-			previousLabel={"<- Previous"}
-			nextLabel={"Next ->"}
 			pageCount={Math.ceil(props.totalPosts / props.postsPerPage)}
 			pageRangeDisplayed={10}
 			marginPagesDisplayed={10}
 			onPageChange={props.handlePageClick}
-			containerClassName="pagination-container"
-			pageClassName="pagination-li"
+			containerClassName="paginate-container"
+			previousClassName="paginate-previous"
+			nextClassName="paginate-next"
+			pageClassName="paginate-page"
 			pageLinkClassName="pagination-a"
+			activeClassName="paginate-active"
+			disabledClassName="paginate-disabled"
+			role="navigation"
 		></ReactPaginate>
 	);
 };

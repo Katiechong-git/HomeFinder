@@ -4,14 +4,9 @@ import Col from "react-bootstrap/Col";
 
 function SearchBar(props) {
 	return (
-		<Form.Group>
+		<Form.Group role="form">
 			<Form.Row className="align-items-center">
-				<Form.Label
-					className="mr-sm-2"
-					htmlFor="inlineFormCustomSelect"
-				>
-					Or you can sort by...
-				</Form.Label>
+				Or you can sort by...
 				<Col xs="auto">
 					<Form.Control
 						as="select"

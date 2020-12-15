@@ -13,20 +13,35 @@ function Navigation({ user }) {
 
 	return (
 		<Navbar bg="light" expand="lg">
-			<Navbar.Brand href="#home">Find your next home! 🏡</Navbar.Brand>
+			<Navbar.Brand href="#home">
+				<h1>Find your next home! 🏡</h1>
+			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav" />
 			<Navbar.Collapse id="basic-navbar-nav">
-				<Nav className="justify-content-end">
-					<Nav.Link href="/">Home</Nav.Link>
+				<Nav>
+					<Nav.Link href="/">
+						<Button variant="light">Home</Button>
+					</Nav.Link>
 					{user ? (
 						<Nav.Link>
-							<Button onClick={signOut}>Sign out</Button>
+							<Button variant="light" onClick={signOut}>
+								Sign out
+							</Button>
 						</Nav.Link>
 					) : (
-						<div>
-							<Nav.Link href="/signup">Sign up</Nav.Link>{" "}
-							<Nav.Link href="/signin">Sign in</Nav.Link>
-						</div>
+						<Nav>
+							<Nav.Item>
+								<Nav.Link href="/signup">
+									<Button variant="light">Sign up</Button>
+								</Nav.Link>
+							</Nav.Item>
+							<Nav.Item>
+								<Nav.Link href="/signin">
+									{" "}
+									<Button variant="light">Sign in</Button>
+								</Nav.Link>
+							</Nav.Item>
+						</Nav>
 					)}
 				</Nav>
 			</Navbar.Collapse>

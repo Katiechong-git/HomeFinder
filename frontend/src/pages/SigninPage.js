@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useHistory } from "react-router-dom";
+import Card from "react-bootstrap/Card";
 
 function SigninPage(props) {
 	const [username, setUsername] = useState("");
@@ -45,30 +45,39 @@ function SigninPage(props) {
 	};
 
 	return (
-		<Form onSubmit={handleSubmit}>
-			<Form.Group controlId="formBasicUsername">
-				<Form.Label>Username</Form.Label>
-				<Form.Control
-					type="username"
-					placeholder="Username"
-					value={username}
-					onChange={(evt) => setUsername(evt.target.value)}
-				/>
-			</Form.Group>
-			<Form.Group controlId="formBasicPassword">
-				<Form.Label>Password</Form.Label>
-				<Form.Control
-					type="password"
-					placeholder="Password"
-					value={password}
-					onChange={(evt) => setPassword(evt.target.value)}
-				/>
-			</Form.Group>
+		<Card border="info" style={{ width: "36rem" }} role="main">
+			<Card.Header>
+				<Card.Title>
+					Sign in to add your comments to each post 💬
+				</Card.Title>
+			</Card.Header>
+			<Card.Body>
+				<Form onSubmit={handleSubmit}>
+					<Form.Group controlId="formBasicUsername">
+						<Form.Label>Username</Form.Label>
+						<Form.Control
+							type="username"
+							placeholder="Username"
+							value={username}
+							onChange={(evt) => setUsername(evt.target.value)}
+						/>
+					</Form.Group>
+					<Form.Group controlId="formBasicPassword">
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type="password"
+							placeholder="Password"
+							value={password}
+							onChange={(evt) => setPassword(evt.target.value)}
+						/>
+					</Form.Group>
 
-			<Button variant="primary" type="submit">
-				Submit
-			</Button>
-		</Form>
+					<Button variant="outline-dark" type="submit">
+						Sign in
+					</Button>
+				</Form>
+			</Card.Body>
+		</Card>
 	);
 }
 

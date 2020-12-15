@@ -82,6 +82,7 @@ module.exports = function configurePassport(app) {
 
 	// Initialize Passport and restore authentication state, if any, from the
 	// session.
+	// passport.session() acts as a middleware to alter the req object and change the 'user' value that is currently the session id (from the client cookie) into the true deserialized user object.
 	app.use(passport.initialize());
 	app.use(passport.session());
 };

@@ -7,7 +7,7 @@ import SortBar from "../components/SortBar.js";
 function Home() {
 	const [posts, setPosts] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-	const postsPerPage = 8;
+	const postsPerPage = 6;
 
 	const [search, setSearch] = useState("");
 	const [searchBy, setSearchBy] = useState("neighborhood");
@@ -109,7 +109,6 @@ function Home() {
 				totalPosts={posts.length}
 				handlePageClick={handlePageClick}
 			></Pagination>
-			<footer>Here is a footer</footer>
 		</div>
 	);
 }

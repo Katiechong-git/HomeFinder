@@ -52,69 +52,80 @@ function PostDetails() {
 	}, []);
 
 	return (
-		<Card>
-			<Card.Header>
-				<Card.Title>{post.title}</Card.Title>
-			</Card.Header>
-			<Card.Body>
-				<div>
-					<Carousel>
-						{Object.keys(post).length > 0
-							? post.images
-									.map(function (img) {
-										img = img.replace("50x50c", "600x450");
-										return img;
-									})
-									.map((img) => {
-										return (
-											<Carousel.Item>
-												<img
-													className="d-block w-100"
-													src={img}
-													alt="First slide"
-												/>
-											</Carousel.Item>
-										);
-									})
-							: null}
-					</Carousel>
-				</div>
-				<p>{ReactHtmlParser(html)}</p>
-			</Card.Body>
-			<Card.Footer>
-				Share this page with my friends! 😍
-				<FacebookShareButton url={url}>
-					<FacebookIcon size={36} />
-				</FacebookShareButton>
-				<WhatsappShareButton url={url}>
-					<WhatsappIcon size={36} />
-				</WhatsappShareButton>
-				<EmailShareButton url={url}>
-					<EmailIcon size={36} />
-				</EmailShareButton>
-				<Form onSubmit={handleSubmit}>
-					<Form.Group controlId="formBasicComment">
-						<Form.Label>Comment</Form.Label>
-						<Form.Control
-							as="textarea"
-							rows={3}
-							onChange={(evt) => setComment(evt.target.value)}
-							value={comment}
-						/>
-					</Form.Group>
-					<Button variant="primary" type="submit">
-						Submit
-					</Button>
-				</Form>
-				{post.comments &&
-					post.comments.map((comment) => (
-						<Card.Body>
-							<p>{comment.username}</p>
-							<p>{comment.description}</p>
-						</Card.Body>
-					))}
-			</Card.Footer>
-		</Card>
+		<div role="main">
+			<Card border="info">
+				<h1>
+					<Card.Header>{post.title}</Card.Header>
+				</h1>
+				<Card.Body>
+					<div>
+						<Carousel>
+							{Object.keys(post).length > 0
+								? post.images
+										.map(function (img) {
+											img = img.replace(
+												"50x50c",
+												"600x450"
+											);
+											return img;
+										})
+										.map((img) => {
+											return (
+												<Carousel.Item>
+													<img
+														className="d-block w-100"
+														src={img}
+														alt="First slide"
+													/>
+												</Carousel.Item>
+											);
+										})
+								: null}
+						</Carousel>
+					</div>
+					<p>{ReactHtmlParser(html)}</p>
+				</Card.Body>
+				<Card.Footer>
+					Share this page with my friends! 😍{"  "}
+					<FacebookShareButton url={url}>
+						<FacebookIcon size={36} />
+					</FacebookShareButton>
+					{"  "}
+					<WhatsappShareButton url={url}>
+						<WhatsappIcon size={36} />
+					</WhatsappShareButton>
+					{"  "}
+					<EmailShareButton url={url}>
+						<EmailIcon size={36} />
+					</EmailShareButton>
+					<br />
+					<br />
+					<Form onSubmit={handleSubmit}>
+						<Form.Group controlId="formBasicComment">
+							<Form.Label>Comment</Form.Label>
+							<Form.Control
+								as="textarea"
+								rows={3}
+								onChange={(evt) => setComment(evt.target.value)}
+								value={comment}
+							/>
+						</Form.Group>
+						<Button variant="outline-dark" type="submit">
+							Submit
+						</Button>
+					</Form>
+					{post.comments &&
+						post.comments.map((comment) => (
+							<Card.Body>
+								<p>
+									User @{comment.username} said "
+									{comment.description}"
+								</p>
+							</Card.Body>
+						))}
+				</Card.Footer>
+			</Card>
+		</div>
 	);
 }
 

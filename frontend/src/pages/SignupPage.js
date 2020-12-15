@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 function SignupPage() {
 	const [username, setUsername] = useState("");
@@ -23,46 +24,54 @@ function SignupPage() {
 			}), // body data type must match "Content-Type" header
 		});
 
+		window.location.href = "/";
 		console.log("Please create a account", response);
 	};
 
 	return (
-		<div>
-			<h1>Create an account</h1>
-			<Form onSubmit={createUser}>
-				<Form.Group controlId="formBasicUsername">
-					<Form.Label>Username</Form.Label>
-					<Form.Control
-						type="username"
-						placeholder="Username"
-						value={username}
-						onChange={(evt) => setUsername(evt.target.value)}
-					/>
-				</Form.Group>
-				<Form.Group controlId="formBasicPassword">
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						type="password"
-						placeholder="Password"
-						value={password}
-						onChange={(evt) => setPassword(evt.target.value)}
-					/>
-				</Form.Group>
-				<Form.Group controlId="formBasicPassword">
-					<Form.Label>Password</Form.Label>
-					<Form.Control
-						type="password"
-						placeholder="Confirm Password"
-						value={confirmPassword}
-						onChange={(evt) => setConfirmPassword(evt.target.value)}
-					/>
-				</Form.Group>
+		<Card border="info" style={{ width: "36rem" }} role="main">
+			<Card.Header>
+				<Card.Title>Create an account now 🪴</Card.Title>
+			</Card.Header>
+			<Card.Body>
+				{" "}
+				<Form onSubmit={createUser}>
+					<Form.Group>
+						<Form.Label>Username</Form.Label>
+						<Form.Control
+							type="username"
+							placeholder="Username"
+							value={username}
+							onChange={(evt) => setUsername(evt.target.value)}
+						/>
+					</Form.Group>
+					<Form.Group>
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type="password"
+							placeholder="Password"
+							value={password}
+							onChange={(evt) => setPassword(evt.target.value)}
+						/>
+					</Form.Group>
+					<Form.Group>
+						<Form.Label>Password</Form.Label>
+						<Form.Control
+							type="password"
+							placeholder="Confirm Password"
+							value={confirmPassword}
+							onChange={(evt) =>
+								setConfirmPassword(evt.target.value)
+							}
+						/>
+					</Form.Group>
 
-				<Button variant="primary" type="submit">
-					Create account
-				</Button>
-			</Form>
-		</div>
+					<Button variant="outline-dark" type="submit">
+						Create account
+					</Button>
+				</Form>
+			</Card.Body>
+		</Card>
 	);
 }
 
