@@ -13,7 +13,7 @@ Technologies: React, MongoDB, Express, Nodejs and passport js for authentication
 The application has a home page where users can see all the housing posts, sign in and sign up pages and a postDetail page where users can see the full description and pictures of the posts, and be able to comment and share the current post on social media. 
 
 Here's a preview of the home page with a list of housing postings
-![image]()
+![image](/preview.png)
 
 ----------------------------------------------------------------------
 
