@@ -33,7 +33,7 @@ function PostDetails() {
 	};
 
 	const handleSubmit = async (e) => {
-		// e.preventDefault();
+		e.preventDefault();
 		console.log("comment", comment);
 		const response = await fetch(`/api/posts/post/${post._id}/comment`, {
 			method: "POST",
@@ -44,6 +44,8 @@ function PostDetails() {
 				comment,
 			}), // body data type must match "Content-Type" header
 		});
+
+		getPost();
 	};
 
 	// load the database and clean up on server side
