@@ -2,6 +2,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navigation({ user }) {
 	const signOut = async () => {
@@ -31,15 +32,15 @@ function Navigation({ user }) {
 					) : (
 						<Nav>
 							<Nav.Item>
-								<Nav.Link href="/signup">
+								<Link to={"/signup"}>
 									<Button variant="light">Sign up</Button>
-								</Nav.Link>
+								</Link>
 							</Nav.Item>
 							<Nav.Item>
-								<Nav.Link href="/signin">
+								<Link to={"/signin"}>
 									{" "}
 									<Button variant="light">Sign in</Button>
-								</Nav.Link>
+								</Link>
 							</Nav.Item>
 						</Nav>
 					)}
