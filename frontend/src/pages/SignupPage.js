@@ -55,7 +55,7 @@ function SignupPage() {
 						/>
 					</Form.Group>
 					<Form.Group>
-						<Form.Label>Password</Form.Label>
+						<Form.Label>Confirm Password</Form.Label>
 						<Form.Control
 							type="password"
 							placeholder="Confirm Password"
