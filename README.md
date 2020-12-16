@@ -4,7 +4,7 @@ Porject 4 for CS5610 Web Development at Northeastern University
 
 Author: Katie Chong
 
-URL to class: https://johnguerra.co/classes/webDevelopment_fall_2020/
+Class Link: https://johnguerra.co/classes/webDevelopment_fall_2020/
 
 Objective: An housing list application that let users explore a list of Craigslist postings. The app lets users see the listings in an orderly manner using pagination, enables filtering and sorting by different criteria and allows registered users to comment and share the postings.
 
