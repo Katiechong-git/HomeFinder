@@ -32,15 +32,19 @@ function Navigation({ user }) {
 					) : (
 						<Nav>
 							<Nav.Item>
-								<Link to={"/signup"}>
-									<Button variant="light">Sign up</Button>
-								</Link>
+								<Nav.Link>
+									<Link to={"/signup"}>
+										<Button variant="light">Sign up</Button>
+									</Link>
+								</Nav.Link>
 							</Nav.Item>
 							<Nav.Item>
-								<Link to={"/signin"}>
-									{" "}
-									<Button variant="light">Sign in</Button>
-								</Link>
+								<Nav.Link>
+									<Link to={"/signin"}>
+										{" "}
+										<Button variant="light">Sign in</Button>
+									</Link>
+								</Nav.Link>
 							</Nav.Item>
 						</Nav>
 					)}
