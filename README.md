@@ -19,22 +19,22 @@ Here's a preview of the home page with a list of housing postings
 
 Instruction to build locally:
 
-1.Open terminal on Mac or CMD on windows
+1. Open terminal on Mac or CMD on windows
 
-2.cd into the directory where you wanna clone the project
+2. cd into the directory where you wanna clone the project
 
-3.git clone 
+3. git clone https://github.com/Katiechong-git/HomeFinder.git
 
-5.cd HomeFinder
+5. cd HomeFinder
 
-6.npm install 
+6. npm install 
 
-7.npm start
+7. npm start
 
-5.cd frontend
+5. cd frontend
 
-6.npm install 
+6. npm install 
 
-7.npm start
+7. npm start
 
-6.Open your browser and go to http://localhost:3000/ 
+6. Open your browser and go to http://localhost:3000/ 
