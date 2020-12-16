@@ -20,7 +20,7 @@ Here's a preview of the home page with a list of housing postings
 
 ----------------------------------------------------------------------
 
-Instruction to build locally:
+Instructions to build locally:
 
 1. Open terminal on Mac or CMD on windows
 
